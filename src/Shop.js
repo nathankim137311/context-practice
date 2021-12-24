@@ -1,35 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react/cjs/react.development';
 import { CartContext } from './CartContext';
+import { CatalogContext } from './CatalogContext';
 
 function Shop() {
-    const [catalog] = useState([
-        {
-            id: 1,
-            name: 'Figurine',
-            price: 24.99,
-            quantity: 1,
-        },
-        {
-            id: 2,
-            name: 'Toy Robot',
-            price: 39.99,
-            quantity: 1,
-        },
-        {
-            id: 3,
-            name: 'Teddy Bear',
-            price: 19.99,
-            quantity: 1,
-        },
-        {
-            id: 4,
-            name: 'Unicorn Plush',
-            price: 19.99,
-            quantity: 1,
-        },
-    ]);
+    const [catalog] = useContext(CatalogContext);
     const {cartArr, totalItemsValue} = useContext(CartContext);
     const [cart, setCart] = cartArr;
     const [totalItems, setTotalItems] = totalItemsValue;
