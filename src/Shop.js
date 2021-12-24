@@ -29,7 +29,6 @@ function Shop() {
             quantity: 1,
         },
     ]);
-
     const {cartArr, totalItemsValue} = useContext(CartContext);
     const [cart, setCart] = cartArr;
     const [totalItems, setTotalItems] = totalItemsValue;

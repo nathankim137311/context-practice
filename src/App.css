@@ -43,6 +43,22 @@ h2 {
   width: 800px;
 }
 
+.product-container .cart-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+.product-container .cart-btn {
+  cursor: pointer;
+}
+
+.product-container span {
+  width: 20px;
+}
+
 .product-container h1, h3 {
   text-align: left;
   margin: 0;
