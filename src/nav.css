@@ -1,0 +1,22 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    color: white;
+    background-color: #0f1626;
+    width: 100%;
+}
+
+nav h3 {
+    margin-left: 5em;
+}
+
+.nav-links {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+}
