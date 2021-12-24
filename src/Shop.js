@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react/cjs/react.development';
 import { CartContext } from './CartContext';
 
@@ -82,11 +83,13 @@ function Shop() {
                 {catalog.map(product => {
                     return (
                         <li key={product.id}>
-                            <div className='product-container'>
-                                <h1>{product.name}</h1>
-                                <span>{product.price}</span>
-                                <button value={product.id} onClick={addToCart}>Add To Cart</button>
-                            </div>
+                            <Link to={`/shop/products/${product.id}`}>
+                                <div className='product-container'>
+                                    <h1>{product.name}</h1>
+                                    <span>{product.price}</span>
+                                    <button value={product.id} onClick={addToCart}>Add To Cart</button>
+                                </div>
+                            </Link>
                         </li>
                     )
                 })}
