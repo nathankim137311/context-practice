@@ -27,6 +27,31 @@ function Cart() {
         setCart(cart.filter(product => product.id !== productId));
     }
 
+    const decrementItem = (e) => {
+        const productId = parseInt(e.target.value);
+        const index = cart.findIndex(product => product.id === productId);
+        
+        // copy cart array from state 
+        let newCart = [...cart];
+        const product = newCart[index];
+        if (product.quantity === 1) { // check and delete product from cart
+            console.log(`removed ${product.name} from shopping cart`);
+            setCart(cart.filter(product => product.id !== productId));
+        } 
+        else {
+            product.quantity -= 1;
+            setCart(newCart);
+        }
+    }
+
+    const incrementItem = (e) => {
+        const productId = parseInt(e.target.value);
+        const index = cart.findIndex(product => product.id === productId);
+        let newCart = [...cart];
+        newCart[index].quantity += 1;
+        setCart(newCart); 
+    }
+
     return (
         <React.Fragment>
             <h1>Cart</h1>
@@ -39,9 +64,9 @@ function Cart() {
                                 <span>{product.id}</span>
                                 <h3>{product.name}</h3>
                                 <span>{product.price}</span>
-                                <button className='cart-btn'>-</button>
+                                <button value={product.id} className='cart-btn' onClick={decrementItem}>-</button>
                                 <span>{product.quantity}</span>
-                                <button className='cart-btn'>+</button>
+                                <button value={product.id} className='cart-btn' onClick={incrementItem}>+</button>
                                 <button value={product.id} onClick={removeItem}>remove</button>
                             </div>
                         </li>

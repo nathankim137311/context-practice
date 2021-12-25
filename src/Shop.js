@@ -59,13 +59,13 @@ function Shop() {
                 {catalog.map(product => {
                     return (
                         <li key={product.id}>
-                            <Link to={`/shop/products/${product.id}`}>
                                 <div className='product-container'>
-                                    <h1>{product.name}</h1>
+                                    <Link to={`/shop/products/${product.id}`}>
+                                        <h1>{product.name}</h1>
+                                    </Link>
                                     <span>{product.price}</span>
                                     <button value={product.id} onClick={addToCart}>Add To Cart</button>
                                 </div>
-                            </Link>
                         </li>
                     )
                 })}
